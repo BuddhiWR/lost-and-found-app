@@ -1,0 +1,28 @@
+{
+  "users": [
+    {
+      "id": "ed6e",
+      "fullName": "Weerakoon Rajapaksha Buddhini Madhushani",
+      "email": "wrb@dmail.com",
+      "password": "123"
+    }
+  ],
+  "items": [
+    {
+      "id": "613c",
+      "itemName": "book",
+      "description": "loss at library",
+      "location": "library",
+      "dateLost": "2025-06-05",
+      "status": "found"
+    },
+    {
+      "id": "32b1",
+      "itemName": "Black Wallet",
+      "description": "Leather wallet with ID and cards inside",
+      "location": "Library",
+      "dateLost": "2025-05-22",
+      "status": "lost"
+    }
+  ]
+}
