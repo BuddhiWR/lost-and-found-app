@@ -8,6 +8,7 @@ import { AuthProvider } from './context/AuthContext';
 import AddLostItem from './pages/AddLostItem';
 import Home from './pages/Home';
 import ProtectedRoute from './components/ProtectedRoute';
+import AdminPanel from './pages/AdminPanel';
 
 
 const App = () => {
@@ -21,6 +22,8 @@ const App = () => {
         <Route path="/signin" element={<SignIn />} />
         <Route path="/add-item" element={<AddLostItem />} />
         <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>}/>
+        <Route path="/admin-panel" element={<ProtectedRoute allowedRoles={['ADMIN', 'STAFF']}><AdminPanel /></ProtectedRoute>}/>
+
       </Routes>
        </AuthProvider>
     </BrowserRouter>

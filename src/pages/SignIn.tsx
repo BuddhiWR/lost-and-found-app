@@ -1,3 +1,4 @@
+// src/pages/SignIn.tsx
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
@@ -24,16 +25,17 @@ const SignIn = () => {
       });
 
       if (response.data.length > 0) {
-        // Login success
+        const userData = response.data[0]; // { id, email, role, ... }
         const fakeToken = 'dummy-jwt-token';
-        login(fakeToken);
+
+        login(userData, fakeToken);
         navigate('/dashboard');
       } else {
         setError('Invalid email or password');
       }
     } catch (err) {
       console.error(err);
-      setError('Failed to login');
+      setError('Login failed. Try again.');
     }
   };
 
@@ -56,7 +58,10 @@ const SignIn = () => {
           className="w-full p-2 border rounded"
         />
         {error && <p className="text-red-500">{error}</p>}
-        <button type="submit" className="w-full bg-blue-600 text-white p-2 rounded hover:bg-blue-700">
+        <button
+          type="submit"
+          className="w-full bg-blue-600 text-white p-2 rounded hover:bg-blue-700"
+        >
           Sign In
         </button>
       </form>
